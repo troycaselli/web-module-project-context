@@ -16,8 +16,8 @@ function App() {
 	const [cart, setCart] = useState(localStorageCart || []);
 
 	const addItem = item => {
-		setCart([...cart, item]);
-		
+		const filtered = cart.filter(element => element.id !== item.id);
+		if(cart.length === filtered.length) setCart([...cart, item]);
 	};
 
 	useEffect(() => {
